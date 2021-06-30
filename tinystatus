@@ -89,7 +89,7 @@ outagenb="$(find "${tmp}/ko" -mindepth 1 | grep -c 'status$')"
 if [ "${outagenb}" -ne 0 ]; then
     echo "<ul><li class='panel failed-bg'>${outagenb} Outage(s)</li></ul>"
 else
-    echo "<ul><li class='panel success-bg'>All Systems Operational</li></ul>"
+    echo "<ul><li class='panel success-bg'>All Systems Online</li></ul>"
 fi
 cat << EOF
 <h1>Services</h1>
@@ -104,7 +104,7 @@ done
 for file in "${tmp}/ok/"*.status; do
     [ -e "${file}" ] || continue
     name="$(basename "${file}" | sed 's,.status$,,')"
-    echo "<li>${name} <span class='status success'>Operational</span></li>"
+    echo "<li>${name} <span class='status success'>Online</span></li>"
 done
 cat << EOF
 </ul>
